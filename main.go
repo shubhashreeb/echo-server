@@ -54,7 +54,7 @@ func getRequest(w http.ResponseWriter, r *http.Request) {
 	outputText += fmt.Sprintf("Host: \n    %s\n", name)
 
 	forwarded := r.Header.Get("X-FORWARDED-FOR")
-	if forwarded != "" {
+	if forwarded == "" {
 		forwarded = r.RemoteAddr
 	}
 	headers := r.Header
